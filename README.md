@@ -1,55 +1,24 @@
-# Hi, I'm Sameer Khan 👋
+# 💫 About Me:
+🔭 I’m currently working on enterprise AWS cloud infrastructure, production EKS clusters, and Amazon Connect contact center solutions at IBM.  <br>👯 I’m looking to collaborate on open-source Kubernetes operators, Terraform modules, and DevSecOps automation tools.  <br>🤝 I’m looking for help with advanced SRE practices and multi-cloud reliability engineering frameworks.  <br>🌱 I’m currently learning advanced AI/ML integrations on AWS and serverless platform optimization.  <br>💬 Ask me about Amazon Connect flow design, EKS cluster management, Istio service mesh, Terraform, and DevSecOps pipelines.  <br>⚡ Fun fact I once delivered €200K in annual cloud savings simply by optimizing and decommissioning legacy applications! 
 
-**Senior AWS Cloud Platform Engineer | Kubernetes (EKS) | DevOps | Amazon Connect**
-📍 New Delhi, India — Open to relocation
 
----
+## 🌐 Socials:
+[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/https://www.instagram.com/khansameer421/) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/https://www.linkedin.com/in/sameer-khan-ba25a139/) [![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?logo=YouTube&logoColor=white)](https://youtube.com/@https://www.youtube.com/@TheSameerkhan25) [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:k.sameer25@yahoo.com) 
 
-## 🚀 About Me
+# 💻 Tech Stack:
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Bash Script](https://img.shields.io/badge/bash_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white) ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white) ![Google Cloud](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white) ![.Net](https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white) ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens) ![Apache](https://img.shields.io/badge/apache-%23D42029.svg?style=for-the-badge&logo=apache&logoColor=white) ![Apache Airflow](https://img.shields.io/badge/Apache%20Airflow-017CEE?style=for-the-badge&logo=Apache%20Airflow&logoColor=white) ![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white) ![Apache Tomcat](https://img.shields.io/badge/apache%20tomcat-%23F8DC75.svg?style=for-the-badge&logo=apache-tomcat&logoColor=black) ![AmazonDynamoDB](https://img.shields.io/badge/Amazon%20DynamoDB-4053D6?style=for-the-badge&logo=Amazon%20DynamoDB&logoColor=white) ![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white) ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white) ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white) ![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white) ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white) ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![Jest](https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white) ![Ansible](https://img.shields.io/badge/ansible-%231A1918.svg?style=for-the-badge&logo=ansible&logoColor=white) ![ElasticSearch](https://img.shields.io/badge/-ElasticSearch-005571?style=for-the-badge&logo=elasticsearch) ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) ![Terraform](https://img.shields.io/badge/terraform-%235835CC.svg?style=for-the-badge&logo=terraform&logoColor=white) ![Rancher](https://img.shields.io/badge/rancher-%230075A8.svg?style=for-the-badge&logo=rancher&logoColor=white) ![SonarQube](https://img.shields.io/badge/SonarQube-black?style=for-the-badge&logo=sonarqube&logoColor=4E9BCD) ![Swagger](https://img.shields.io/badge/-Swagger-%23Clojure?style=for-the-badge&logo=swagger&logoColor=white)
+# 📊 GitHub Stats:
+![](https://github-readme-stats.shion.dev/api?username=khansameer421421&theme=dark&hide_border=false&include_all_commits=false&count_private=false)<br/>
+![](https://streak-stats.demolab.com/?user=khansameer421421&theme=dark&hide_border=false)<br/>
+![](https://github-readme-stats.shion.dev/api/top-langs/?username=khansameer421421&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
 
-I'm a Cloud Platform Engineer with **12+ years of experience** designing, automating, and securing infrastructure on AWS and GCP. I currently work as an **AWS Cloud Platform / Amazon Connect Engineer at IBM India**, supporting a UK banking client — building resilient, secure, and highly automated cloud platforms.
+### ✍️ Random Dev Quote
+![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
 
-I specialize in **Kubernetes (EKS)**, **Infrastructure as Code**, **CI/CD automation**, and **contact center engineering (Amazon Connect)**, with a strong focus on security and reliability at scale.
-
-🌍 Actively exploring senior/lead roles across the **UAE, Qatar, Saudi Arabia, UK, Australia, Canada, Europe, and New Zealand**.
-
----
-
-## 🛠️ Core Skills
-
-**Cloud Platforms:** AWS, GCP
-**Containers & Orchestration:** Kubernetes (EKS), Docker, Istio
-**Infrastructure as Code:** Terraform, Ansible
-**CI/CD:** GitHub Actions, Harness
-**Contact Center:** Amazon Connect
-**Compute & Data:** AWS Lambda, DynamoDB, Redis
-**Security:** IAM, KMS, Snyk, SonarQube
-**Languages:** Python
+### 🔝 Top Contributed Repo
+![](https://github-contributor-stats.vercel.app/api?username=khansameer421421&limit=5&theme=dark&combine_all_yearly_contributions=true)
 
 ---
+[![](https://komarev.com/ghpvc/?username=khansameer421421&icon=0&color=0)](https://visitcount.itsvg.in)
 
-## 📜 Certifications
-
-- AWS Certified AI Practitioner (2025)
-- AWS Certified SysOps Administrator – Associate (2024)
-- HashiCorp Certified: Terraform Associate (2023)
-- Google Cloud Associate Cloud Engineer (2022)
-- Red Hat Certified System Administrator (RHCSA 7) (2017)
-
----
-
-## 💼 Experience Highlights
-
-- **AWS Cloud Platform / Amazon Connect Engineer — IBM India Pvt Ltd**
-  Supporting a UK banking client; managing secure, scalable AWS infrastructure and contact center platforms.
-- 12+ years across cloud infrastructure, platform engineering, and DevOps automation.
-
----
-
-## 📫 Let's Connect
-
-Open to full-time roles, relocation opportunities, and freelance/consulting engagements in **AWS, EKS, and Amazon Connect**.
-
-- 💼 LinkedIn: *add your profile link*
-- 📧 Email: *add your contact email*
-
+<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
