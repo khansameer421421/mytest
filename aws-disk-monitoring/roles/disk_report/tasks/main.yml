@@ -64,7 +64,9 @@
 - name: Append fleet statistics to history (used for trend graphs)
   ansible.builtin.lineinfile:
     path: "{{ report_dir }}/history.csv"
-    line: "{{ disk_report_ts }},{{ disk_stats.hosts_total }},{{ disk_stats.hosts_reporting }},{{ disk_stats.hosts_gap }},{{ disk_stats.filesystems }},{{ disk_stats.warning }},{{ disk_stats.critical }}"
+    line: >-
+      {{ [disk_report_ts, disk_stats.hosts_total, disk_stats.hosts_reporting, disk_stats.hosts_gap,
+          disk_stats.filesystems, disk_stats.warning, disk_stats.critical] | join(',') }}
     insertafter: EOF
     create: true
     mode: "0644"

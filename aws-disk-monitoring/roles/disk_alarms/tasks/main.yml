@@ -18,7 +18,9 @@
     profile: "{{ aws_profile }}"
     region: "{{ aws_region }}"
     state: present
-    name: "{{ alarm_prefix }}-fs-{{ item.1.name }}-{{ instance_id }}-{{ (item.0.mount == '/') | ternary('root', item.0.mount | regex_replace('[^A-Za-z0-9_.-]', '_') | regex_replace('^_', '')) }}"
+    name: >-
+      {{ alarm_prefix }}-fs-{{ item.1.name }}-{{ instance_id }}-{{ (item.0.mount == '/')
+      | ternary('root', item.0.mount | regex_replace('[^A-Za-z0-9_.-]', '_') | regex_replace('^_', '')) }}
     description: "{{ item.1.name | upper }}: {{ item.0.mount }} on {{ disk_host_summary.name }} ({{ instance_id }}) >= {{ item.1.threshold }}% used"
     namespace: "{{ cwagent_namespace }}"
     metric_name: disk_used_percent

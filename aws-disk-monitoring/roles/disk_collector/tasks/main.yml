@@ -8,7 +8,10 @@
   ansible.builtin.wait_for_connection:
     timeout: "{{ disk_connect_timeout }}"
   register: disk_conn
+  # A dead SSH/SSM endpoint is reported as 'unreachable', which ignore_errors
+  # does not cover; without this one bad VM would fail the whole run.
   ignore_errors: true
+  ignore_unreachable: true
 
 - name: Record unreachable host as a coverage gap
   ansible.builtin.set_fact:
@@ -16,11 +19,11 @@
         'collect_status': 'unreachable',
         'collect_error': disk_conn.msg | default('connection failed') | truncate(200),
         'status': 'unknown', 'max_used_pct': none, 'filesystems': []}) }}"
-  when: disk_conn is failed
+  when: disk_conn is failed or disk_conn is unreachable
 
 - name: Stop here for unreachable hosts
   ansible.builtin.meta: end_host
-  when: disk_conn is failed
+  when: disk_conn is failed or disk_conn is unreachable
 
 - name: Collect and evaluate filesystem usage
   block:
