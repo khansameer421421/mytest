@@ -1,0 +1,73 @@
+name: disk-monitoring
+
+on:
+  push:
+    paths: ["aws-disk-monitoring/**", ".github/workflows/disk-monitoring.yml"]
+  pull_request:
+    paths: ["aws-disk-monitoring/**", ".github/workflows/disk-monitoring.yml"]
+
+defaults:
+  run:
+    working-directory: aws-disk-monitoring
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "~1.10"
+      - run: terraform fmt -check -recursive terraform
+      - name: Validate every root and module
+        run: |
+          for d in terraform/live/* terraform/modules/*; do
+            echo "== $d"
+            terraform -chdir="$d" init -backend=false -input=false >/dev/null
+            terraform -chdir="$d" validate
+          done
+
+  ansible-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt ansible-lint yamllint
+      - run: ansible-galaxy collection install -r requirements.yml
+      - run: yamllint .
+      - run: ansible-lint
+      - name: Syntax-check every playbook
+        run: |
+          for p in playbooks/*.yml; do
+            ansible-playbook --syntax-check -i inventories/local "$p"
+          done
+
+  # Proves the collection -> aggregation -> report path end to end on a real
+  # host, including how an unreachable VM is reported.
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: ansible-galaxy collection install -r requirements.yml
+      - run: ansible-playbook -i inventories/local playbooks/collect_disk_usage.yml
+      - name: Check the report contents
+        run: |
+          python - <<'EOF'
+          import json
+          r = json.load(open("reports/latest/disk_report.json"))
+          print(json.dumps(r["stats"], indent=2))
+          assert int(r["stats"]["hosts_total"]) == 3
+          assert int(r["stats"]["hosts_reporting"]) == 2
+          assert r["coverage_gaps"] == ["demo-legacy-01"]
+          assert int(r["stats"]["filesystems"]) > 0
+          EOF
+      - uses: actions/upload-artifact@v4
+        with:
+          name: disk-report
+          path: aws-disk-monitoring/reports/

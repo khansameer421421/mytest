@@ -1,0 +1,9 @@
+organization_id = "o-abc123xyz0"
+home_region     = "us-east-1"
+alert_emails    = ["sre@example.com"]
+
+# Acquired accounts not yet migrated into the organization.
+external_member_account_ids = []
+
+# Set to a private subnet ID to have Terraform create the controller VM.
+controller_subnet_id = null

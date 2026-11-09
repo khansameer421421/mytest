@@ -1,0 +1,17 @@
+.cache/
+collections/
+reports/
+inventories/aws/*.aws_ec2.yml
+inventories/accounts.generated.json
+*.retry
+__pycache__/
+.venv/
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+member.auto.tfvars.json
+terraform/backend.hcl
+terraform/modules/**/.terraform.lock.hcl

@@ -1,0 +1,45 @@
+#!/bin/bash
+# Bootstraps the Ansible controller. Rendered by Terraform (templatefile).
+set -euo pipefail
+
+dnf install -y git python3-pip make awscli-2
+# Required by Ansible's aws_ssm connection plugin.
+dnf install -y https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_64bit/session-manager-plugin.rpm
+useradd --system --create-home --home-dir /opt/diskmon diskmon || true
+
+sudo -u diskmon bash -lc '
+  git clone ${repo_url} /opt/diskmon/repo || git -C /opt/diskmon/repo pull --ff-only
+  cd /opt/diskmon/repo/${repo_subdir}
+  python3 -m pip install --user -r requirements.txt
+  ~/.local/bin/ansible-galaxy collection install -r requirements.yml
+'
+
+cat > /etc/systemd/system/diskmon.service <<'EOF'
+[Unit]
+Description=Disk monitoring - inventory, enroll, collect, alarms
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=diskmon
+WorkingDirectory=/opt/diskmon/repo/${repo_subdir}
+Environment=PATH=/opt/diskmon/.local/bin:/usr/local/bin:/usr/bin
+ExecStartPre=/usr/bin/git -C /opt/diskmon/repo pull --ff-only
+ExecStart=/usr/bin/make site
+EOF
+
+cat > /etc/systemd/system/diskmon.timer <<'EOF'
+[Unit]
+Description=Run disk monitoring on a schedule
+
+[Timer]
+OnCalendar=${schedule}
+RandomizedDelaySec=300
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+EOF
+
+systemctl daemon-reload
+systemctl enable --now diskmon.timer
