@@ -1,3 +1,4 @@
 ---
 - name: Install and configure the CloudWatch agent (OS specific)
-  ansible.builtin.include_tasks: "{{ 'windows.yml' if ansible_os_family == 'Windows' else 'linux.yml' }}"
+  ansible.builtin.include_tasks:
+    file: "{{ 'windows.yml' if ansible_os_family == 'Windows' else 'linux.yml' }}"

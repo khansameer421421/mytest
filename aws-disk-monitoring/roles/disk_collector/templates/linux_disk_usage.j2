@@ -1,13 +1,17 @@
 {#- used_pct counts root-reserved blocks as used: it reflects the space a
-    non-root service can actually still write, which is what causes outages. -#}
+    non-root service can actually still write, which is what causes outages.
+    Read-only mounts are skipped (they are "100% full" by design and cannot
+    fill up), and a device mounted at several paths (bind mounts) is counted
+    once, under its shortest path. -#}
 {%- set rows = [] -%}
 {%- set seen = [] -%}
 {%- for m in ansible_mounts | sort(attribute='mount')
       if m.fstype not in disk_exclude_fstypes
       and m.mount is not match(disk_exclude_mount_regex)
       and (m.size_total | default(0) | int) > 0
-      and m.mount not in seen -%}
-{%-   set _ = seen.append(m.mount) -%}
+      and 'ro' not in (m.options | default('')).split(',')
+      and m.device not in seen -%}
+{%-   set _ = seen.append(m.device) -%}
 {%-   set size = m.size_total | int -%}
 {%-   set avail = m.size_available | default(0) | int -%}
 {%-   set used_pct = ((size - avail) / size * 100) | round(1) -%}

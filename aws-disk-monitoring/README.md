@@ -196,7 +196,7 @@ Schedule `make site` hourly, e.g. as an AWX schedule, a systemd timer, or cron o
 
 ### Try it locally (no AWS needed)
 
-The local demo exercises the full collection → aggregation → report path, including how an unreachable VM is reported:
+The local demo exercises the full collection → aggregation → report path, including how an unreachable VM is reported. **On Windows, follow the step-by-step guide in [docs/LOCAL_DEMO.md](docs/LOCAL_DEMO.md)** (Terraform validation in PowerShell, Ansible demo in WSL). On Linux or macOS:
 
 ```bash
 make deps

@@ -28,7 +28,8 @@
 - name: Collect and evaluate filesystem usage
   block:
     - name: Collect filesystem usage (OS specific)
-      ansible.builtin.include_tasks: "{{ 'windows.yml' if (ansible_shell_type | default('sh')) == 'powershell' else 'linux.yml' }}"
+      ansible.builtin.include_tasks:
+        file: "{{ 'windows.yml' if (ansible_shell_type | default('sh')) == 'powershell' else 'linux.yml' }}"
 
     - name: Summarise host
       vars:
